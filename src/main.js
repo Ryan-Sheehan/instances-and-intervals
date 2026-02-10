@@ -7,8 +7,14 @@ const videoPlayer = document.getElementById('video-player');
 const video = videoPlayer.querySelector('.fullscreen-bg__video');
 const playlist = videoPlayer.querySelector('.fullscreen-bg__playlist');
 const allLinks = playlist.children;
-
 let currentVideo = 0;
+
+// Toggle mute on any click or keypress
+function toggleMute() {
+  video.muted = !video.muted;
+}
+document.addEventListener('click', toggleMute);
+document.addEventListener('keydown', toggleMute);
 
 // Extract filenames from playlist links
 const linkList = Array.from(allLinks).map((link) => {
